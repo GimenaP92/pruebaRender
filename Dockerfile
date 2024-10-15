@@ -5,7 +5,8 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Copia los archivos de package.json y package-lock.json
-COPY package*.json ./
+COPY ./back/package*.json ./
+COPY ./front/package*.json ./
 
 # Instala las dependencias
 RUN npm install
@@ -17,6 +18,7 @@ COPY . .
 RUN npm run build
 
 # Expone el puerto en el que la aplicación escucha
+EXPOSE 3001
 EXPOSE 3000
 
 # Comando para iniciar la aplicación
