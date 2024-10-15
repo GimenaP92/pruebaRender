@@ -14,8 +14,6 @@ RUN npm install
 # Copia el resto de los archivos de la aplicación
 COPY . .
 
-# Compila el proyecto (si es necesario)
-RUN npm run build
 
 # Expone el puerto en el que la aplicación escucha
 EXPOSE 3001
