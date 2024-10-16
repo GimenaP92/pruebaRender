@@ -1,7 +1,7 @@
 import { ILoginResponse, IUserLogin, IUserRegister } from '@/interfaces/interfaces'; 
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
+/*https://nest-demo-latest-hg07.onrender.com*/
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
