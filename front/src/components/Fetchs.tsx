@@ -16,7 +16,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
-  const response = await fetch(`https://pruebarender-4wtf.onrender.com/users/register`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json', 
