@@ -16,7 +16,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
+  const response = await fetch(/* `https://nest-demo-latest-hg07.onrender.com/users/register` */'http://localhost:3001/users/register', {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json', 

@@ -14,10 +14,9 @@ export class UsersController {
     try {
       return await this.usersService.createUser(createUserDto);
     } catch (error) {
-      throw new BadRequestException('Error al crear el usuario'); // o personaliza el mensaje
-    }
+      throw new BadRequestException('Error al crear el usuario'); 
   }
-  
+}
   @Get()
   async findAll(
     @Query('page') page: number = 1, 
