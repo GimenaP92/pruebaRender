@@ -1,4 +1,8 @@
 import { ILoginResponse, IUserLogin, IUserRegister } from '@/interfaces/interfaces'; 
+import {config as dotenvConfig} from "dotenv"
+
+dotenvConfig({ path: '.env.local' });
+
 
 // Verificar que la variable de entorno esté definida
 if (!process.env.NEXT_PUBLIC_API_URL) {
