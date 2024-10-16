@@ -3,20 +3,20 @@ import {config as dotenvConfig} from "dotenv"
 
 dotenvConfig({ path: '.env.local' });
 
-
+/* 
 // Verificar que la variable de entorno esté definida
 if (!process.env.NEXT_PUBLIC_API_URL) {
   throw new Error('NEXT_PUBLIC_API_URL no está definida');
 }
 
 // No es necesario agregar /users en cada llamada, ya lo concatenamos aquí
-const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`;
+const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
 
 // Función para registrar un usuario
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
-  const response = await fetch(`${apiUrl}/register`, { // Cambiado a /register
+  const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/register`, { // Cambiado a /register
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json', 
@@ -36,7 +36,7 @@ export const fetchRegisterUser = async (user: IUserRegister) => {
 // Función para login de usuario
 export const fetchLoginUser = async (credentials: IUserLogin): Promise<ILoginResponse> => {
   try {
-    const response = await fetch(`${apiUrl}/login`, { // Cambiado a /login
+    const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/login`, { // Cambiado a /login
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json', 
