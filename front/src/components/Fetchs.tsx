@@ -1,7 +1,7 @@
 import { ILoginResponse, IUserLogin, IUserRegister } from '@/interfaces/interfaces'; 
-import {config as dotenvConfig} from "dotenv"
+//import {config as dotenvConfig} from "dotenv"
 
-dotenvConfig({ path: '.env.local' });
+//dotenvConfig({ path: '.env.local' });
 
 /* 
 // Verificar que la variable de entorno esté definida
@@ -16,7 +16,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
-  const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/register`, { // Cambiado a /register
+  const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/register`, {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json', 
@@ -36,7 +36,7 @@ export const fetchRegisterUser = async (user: IUserRegister) => {
 // Función para login de usuario
 export const fetchLoginUser = async (credentials: IUserLogin): Promise<ILoginResponse> => {
   try {
-    const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/login`, { // Cambiado a /login
+    const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/login`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json', 
