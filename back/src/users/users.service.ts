@@ -12,18 +12,23 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
   
-  async createUser(createUserDto: CreateUserDto): Promise<string> {
+  async createUser(createUserDto: CreateUserDto): Promise<{ message: string; user: User }> {
     const { email, password, phone } = createUserDto;
+    
     const newUser = this.userRepository.create({
-        email,
-        password, 
-        phone,
-      });
+      email,
+      password, 
+      phone,
+    });
   
-      
-       this.userRepository.save(newUser);
-       return "usuario creado"
-    }
+    const savedUser = await this.userRepository.save(newUser);
+    
+    return {
+      message: "Usuario creado con éxito",
+      user: savedUser, 
+    };
+  }
+  
   
   findAll() {
     return `This action returns all users`;
