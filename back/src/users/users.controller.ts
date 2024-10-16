@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException, Query } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './users.service';
@@ -19,8 +19,15 @@ export class UsersController {
   }
   
   @Get()
-  findAll() {
-    return this.usersService.findAll();
+  async findAll(
+    @Query('page') page: number = 1, 
+    @Query('limit') limit: number = 10, 
+  ) {
+    try {
+      return await this.usersService.getAllUsers(page, limit);
+    } catch (error) {
+      throw new BadRequestException('Error al obtener usuarios');
+    }
   }
 
 }

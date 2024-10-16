@@ -29,10 +29,16 @@ export class UserService {
     };
   }
   
-  
-  findAll() {
-    return `This action returns all users`;
-  }
+  async getAllUsers(page: number, limit:number){
+    const skip = (page - 1) *limit;
+    const users = await this.userRepository.find({
+        take:limit,
+        skip: skip,
+    });
 
+    return users.map(({ password, ...userNoPassword}) => userNoPassword);
+}
 
 }
+
+
