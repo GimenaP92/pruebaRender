@@ -11,6 +11,8 @@ async function bootstrap() {
     credentials: true, // Si necesitas enviar cookies o credenciales
   });
 
-  await app.listen(3001);
+  const PORT = process.env.PORT || 3001;
+  await app.listen(PORT);
+
 }
 bootstrap();
