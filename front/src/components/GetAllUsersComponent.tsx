@@ -40,26 +40,37 @@ export default function GetAllUsersComponent() {
   const handlePrevPage = () => setPage((prev) => Math.max(prev - 1, 1));
 
   return (
-    <div>
-      <h1>Usuarios Registrados</h1>
-      {loading && <p>Cargando usuarios...</p>}
-      {error && <p>Error: {error}</p>}
+    <div className="flex items-center justify-center min-h-screen bg-gray-700 text-white p-4">
+      <div className="bg-gray-800 rounded-lg p-6 shadow-md w-full max-w-lg">
+        <h1 className="text-2xl font-semibold text-center mb-4">Usuarios Registrados</h1>
+        {loading && <p>Cargando usuarios...</p>}
+        {error && <p>Error: {error}</p>}
 
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <p>Email: {user.email}</p>
-            <p>Teléfono: {user.phone}</p>
-          </li>
-        ))}
-      </ul>
+        <ul className="mb-4">
+          {users.map((user) => (
+            <li key={user.id} className="border-b border-gray-600 py-2">
+              <p>Email: {user.email}</p>
+              <p>Teléfono: {user.phone}</p>
+            </li>
+          ))}
+        </ul>
 
-      <div>
-        <button onClick={handlePrevPage} disabled={page === 1}>
-          Página Anterior
-        </button>
-        <span> Página {page} </span>
-        <button onClick={handleNextPage}>Página Siguiente</button>
+        <div className="flex justify-between">
+          <button
+            onClick={handlePrevPage}
+            disabled={page === 1}
+            className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200 ${page === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+          >
+            Página Anterior
+          </button>
+          <span className="self-center">Página {page}</span>
+          <button
+            onClick={handleNextPage}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+          >
+            Página Siguiente
+          </button>
+        </div>
       </div>
     </div>
   );
