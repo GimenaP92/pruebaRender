@@ -1,3 +1,4 @@
+// components/GetAllUsersComponent.tsx
 'use client';
 import { IUserResponse } from '@/interfaces/interfaces';
 import React, { useEffect, useState } from 'react';
@@ -28,7 +29,7 @@ export default function GetAllUsersComponent() {
   };
 
   useEffect(() => {
-    loadUsers(page); 
+    loadUsers(page);
   }, [page]);
 
   const handleNextPage = () => setPage((prev) => prev + 1);

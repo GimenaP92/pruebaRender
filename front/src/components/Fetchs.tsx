@@ -44,23 +44,13 @@ export const fetchLoginUser = async (credentials: IUserLogin): Promise<IUserResp
 };
 
 
-
 export const fetchUsers = async (page: number): Promise<IUserResponse[]> => {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users?page=${page}`);
-   
-    if (!response.ok) {
-      throw new Error('Error al obtener usuarios');
-    }
-
-    const data: IUserResponse[] = await response.json();
-    return data;
-  } catch (error) {
-    
-    if (error instanceof Error) {
-      throw new Error(error.message);
-    } else {
-      throw new Error('Error desconocido');
-    }
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users?page=${page}`);
+  
+  if (!response.ok) {
+    throw new Error('Error al obtener usuarios');
   }
+
+  const data: IUserResponse[] = await response.json();
+  return data;
 };
