@@ -8,7 +8,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://pruebarender-front.onrender.com', // Tu dominio de frontend
-      'https://pruebarender-4wtf.onrender.com'  // Otro dominio que necesitas (si aplica)
+      'https://pruebarender-1.onrender.com'  // Otro dominio que necesitas (si aplica)
     ], 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
     credentials: true, // Si necesitas enviar cookies o credenciales
