@@ -15,8 +15,7 @@ export default function GetAllUsersComponent() {
         setError(null);
     
         try {
-          const response = await fetch(
-            `https://nest-demo-latest-hg07.onrender.com/users?page=${page}&limit=10`
+          const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users?page=${page}&limit=10`
           );
           if (!response.ok) {
             throw new Error('Error al obtener usuarios');
