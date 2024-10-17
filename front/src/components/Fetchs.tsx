@@ -16,7 +16,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
-  const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/register`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json', 
@@ -36,7 +36,7 @@ export const fetchRegisterUser = async (user: IUserRegister) => {
 // Función para login de usuario
 export const fetchLoginUser = async (credentials: IUserLogin): Promise<IUserResponse> => {
   try {
-    const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/login`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json', 
