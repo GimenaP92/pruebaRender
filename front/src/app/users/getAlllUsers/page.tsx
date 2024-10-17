@@ -1,4 +1,4 @@
-import GetAllUsersComponent from '@/components/getAllUsersComponent'
+import GetAllUsersComponent from '@/components/GetAllUsersComponent'
 import React from 'react'
 
 export default function getAllUsers() {
