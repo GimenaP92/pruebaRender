@@ -1,5 +1,18 @@
 import { IUserResponse, IUserLogin, IUserRegister } from '@/interfaces/interfaces'; 
+//import {config as dotenvConfig} from "dotenv"
 
+//dotenvConfig({ path: '.env.local' });
+
+/* 
+// Verificar que la variable de entorno esté definida
+if (!process.env.NEXT_PUBLIC_API_URL) {
+  throw new Error('NEXT_PUBLIC_API_URL no está definida');
+}
+
+// No es necesario agregar /users en cada llamada, ya lo concatenamos aquí
+const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
+
+// Función para registrar un usuario
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
@@ -41,16 +54,4 @@ export const fetchLoginUser = async (credentials: IUserLogin): Promise<IUserResp
     console.error('Error en la función login:', error);
     throw error;
   }
-};
-
-
-export const fetchUsers = async (page: number): Promise<IUserResponse[]> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users?page=${page}`);
-  
-  if (!response.ok) {
-    throw new Error('Error al obtener usuarios');
-  }
-
-  const data: IUserResponse[] = await response.json();
-  return data;
 };
