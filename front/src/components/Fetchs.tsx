@@ -1,4 +1,4 @@
-import { ILoginResponse, IUserLogin, IUserRegister } from '@/interfaces/interfaces'; 
+import { IUserResponse, IUserLogin, IUserRegister } from '@/interfaces/interfaces'; 
 //import {config as dotenvConfig} from "dotenv"
 
 //dotenvConfig({ path: '.env.local' });
@@ -16,7 +16,7 @@ const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users`; */
 export const fetchRegisterUser = async (user: IUserRegister) => {
   console.log('Datos del usuario a enviar:', user);
 
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
+  const response = await fetch(/* `https://nest-demo-latest-hg07.onrender.com/users/register` */'http://localhost:3001/users/register', {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json', 
@@ -34,9 +34,9 @@ export const fetchRegisterUser = async (user: IUserRegister) => {
 };
 
 // Función para login de usuario
-export const fetchLoginUser = async (credentials: IUserLogin): Promise<ILoginResponse> => {
+export const fetchLoginUser = async (credentials: IUserLogin): Promise<IUserResponse> => {
   try {
-    const response = await fetch(`https://pruebarender-4wtf.onrender.com/users/login`, {
+    const response = await fetch(`https://nest-demo-latest-hg07.onrender.com/users/login`, {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json', 
@@ -48,7 +48,7 @@ export const fetchLoginUser = async (credentials: IUserLogin): Promise<ILoginRes
       throw new Error('Error en la autenticación');
     }
 
-    const data: ILoginResponse = await response.json();
+    const data: IUserResponse = await response.json();
     return data;
   } catch (error) {
     console.error('Error en la función login:', error);

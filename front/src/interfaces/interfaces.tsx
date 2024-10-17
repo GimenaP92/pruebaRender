@@ -9,7 +9,7 @@ export interface IUserLogin {
     password: string;
 }
 
-export interface ILoginResponse {
+export interface IUserResponse {
     id: string;
     email: string;
     password: string;

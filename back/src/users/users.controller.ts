@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete,Query ,BadRequestException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException, Query } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './users.service';
@@ -14,10 +14,9 @@ export class UsersController {
     try {
       return await this.usersService.createUser(createUserDto);
     } catch (error) {
-      throw new BadRequestException('Error al crear el usuario'); // o personaliza el mensaje
-    }
+      throw new BadRequestException('Error al crear el usuario'); 
   }
-  
+}
   @Get()
   async findAll(
     @Query('page') page: number = 1, 
