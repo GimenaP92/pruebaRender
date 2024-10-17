@@ -2,7 +2,7 @@ import {DataSource, DataSourceOptions } from 'typeorm';
 import { registerAs } from '@nestjs/config';
 import {config as dotenvConfig} from "dotenv"
 
-dotenvConfig({ path: '.env.development' });
+dotenvConfig({ path: '.env' });
 
 
 const config: DataSourceOptions = {
@@ -15,12 +15,9 @@ const config: DataSourceOptions = {
   dropSchema: false,
   logging: true,
   synchronize: true,
-  ssl: {
-    rejectUnauthorized: false, 
-  },
+  ssl: false,
   entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: ['dist/migrations/*{.ts,.js}'],
- 
 };
 
 export default registerAs('typeorm', () => config);
